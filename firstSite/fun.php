@@ -1,5 +1,5 @@
 <!DOCTYPE html>
     <body>
-        <?= 'PHP is fun!' ?>
+        <?php 'PHP is fun!' ?>
     </body>
 </html>
