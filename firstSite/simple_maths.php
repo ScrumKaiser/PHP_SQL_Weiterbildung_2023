@@ -1,4 +1,5 @@
-<!--
+<?php
+/*
     Übung 6:
     Schreibe ein Skript, in dem du eine Variable $number mit dem Wert 5 deklarierst. 
     Führe anschließend die folgenden Berechnungen durch und speichere den Wert wieder in der Variable $number:
@@ -11,26 +12,15 @@
     mit 2 potenzieren
 
     Gib das Ergebnis mit echo aus. Dieses sollte 25 sein.
--->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <?php
-            $number = 5;
+*/
 
-            $number += 3;
-            $number /= 2;
-            $number -=1;
-            $number *= 7;
-            $number %= 8;
-            $number **=2;
+$number = 5;
 
-            echo $number;
-        ?>
-    </body>
-</html>
+$number += 3;
+$number /= 2;
+$number -= 1;
+$number *= 7;
+$number %= 8;
+$number **= 2;
+
+echo $number;
