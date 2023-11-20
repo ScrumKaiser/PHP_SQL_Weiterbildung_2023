@@ -1,7 +1,4 @@
 <?php
-// Deaktiviert die automatische Umwandlung von Variablen
-declare(strict_types=1);
-
 /*
     Übung 7:
     Vertrauen ist gut, Kontrolle ist besser. 
