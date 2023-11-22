@@ -1,17 +1,20 @@
 <?php
+
+declare(strict_types=1);
+
 /*
     Übung 15:
     Schreibe eine Funktion, die einen Integer Wert entgegennimmt und prüft, ob dieser gerade oder ungerade ist. 
     Gib einen String mit gerade oder ungerade zurück, je nachdem welche Bedingung erfüllt ist.
 */
 
-function isIntegerEvenOrOdd(int $number): string
+function checkIfEvenOrOdd(int $number): string
 {
     return $number % 2 == 0 ? "gerade" : "ungerade";
 }
 
-echo "Die 13 ist " . isIntegerEvenOrOdd(13) . "\n";
-echo "Die 20 ist " . isIntegerEvenOrOdd(20);
+echo "13 ist " . checkIfEvenOrOdd(13) . "\n";
+echo "20 ist " . checkIfEvenOrOdd(20);
 
 echo "\n\n";
 
@@ -22,20 +25,38 @@ echo "\n\n";
     soll die entsprechende mathematische Operation ausgeführt werden. Gib das Ergebnis zurück. Du kannst es dir gerne auch ausgeben lassen.
 */
 
-function calculate(int|float $number1, int|float $number2, string $operator): int|float
+function getCalculationResult(int|float $number1, int|float $number2, string $operator): int|float|string
 {
-    $result = match ($operator) {
+    if ($number2 == 0 && $operator == "/")
+        return "Man kann nicht durch 0 teilen";
+
+    return match ($operator) {
         "+" => $number1 + $number2,
         "-" => $number1 - $number2,
         "*" => $number1 * $number2,
         "/" => $number1 / $number2,
-        default => 0
+        default => "Unerlaubter Operator '$operator'"
     };
-
-    return $result;
 }
 
-echo "Addition:\t3 + 2 = " . calculate(3, 2, "+") . "\n";
-echo "Subtraktion:\t3 - 2 = " . calculate(3, 2, "-") . "\n";
-echo "Multiplikation:\t3 * 2 = " . calculate(3, 2, "*") . "\n";
-echo "Division:\t3 / 2 = " . calculate(3, 2, "/") . "\n";
+$number1 = 3;
+$number2 = 2;
+
+$operator = "+";
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator) . "\n";
+
+$operator = "-";
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator) . "\n";
+
+$operator = "*";
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator) . "\n";
+
+$operator = "/";
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator) . "\n";
+
+$operator = ":";
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator) . "\n";
+
+$operator = "/";
+$number2 = 0;
+echo "$number1 $operator $number2 = " . getCalculationResult($number1, $number2, $operator);
