@@ -29,7 +29,7 @@ $visitors = [
     ],
 ];
 
-var_dump($visitors[0]["visited"][0]);
+echo $visitors[0]["visited"][0];
 
 echo "\n\n";
 
@@ -63,4 +63,4 @@ $numbers[4] = 5;
 
 array_splice($numbers, 5, 0, 6); // array_splice(array &$array, int $offset, ?int $length = null, mixed $replacement = []): array
 
-var_dump($numbers);
+print_r($numbers);
