@@ -61,17 +61,19 @@
         ]
     ];
 
-    if (isset($_GET["articleId"])) {
-        echo "<hr>";
+    echo "<hr>";
 
-        if (isset($products[$_GET["articleId"]])) {
+    if (isset($_GET["articleId"])) {
+        if (isset($_GET["articleId"]) && isset($products[$_GET["articleId"]])) {
             $product = $products[$_GET["articleId"]];
             
-            echo "<h1>{$product['name']}</h1>";
+            echo "<h1>{$product["name"]}</h1>";
             echo "<br>";
             echo $product["description"];
         } else
             echo "Es gibt keinen Artikel mit dieser Artikelnummer!";
+    } else {
+        echo "Wähle zuerst einen Artikel aus.";
     }
     ?>
 </body>
