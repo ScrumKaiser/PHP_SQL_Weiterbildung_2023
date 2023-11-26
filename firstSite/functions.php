@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /*
     Übung 7:
     Vertrauen ist gut, Kontrolle ist besser. 
@@ -113,7 +116,7 @@ echo "\n\n";
     Wie viele davon sind optionale Parameter?
 */
 
-echo "Übung 12:\n";
+echo "Übung 13:\n";
 
 // Die Funktion hat 3 Parameter von denen einer optional ist
 var_dump(explode("-", "drei-hundert-zwanzig", 2));

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Übung 23:
+        Schreibe eine PHP-Seite, die ein Formular beinhaltet. 
+        In diesem Formular muss der Nutzer seinen Namen, sein Alter und seine E-Mail-Adresse in Inputfeldern definieren. 
+        Weiterhin kann der Nutzer eine Beschreibung über sich in einem Textarea-Feld definieren. 
+        Er kann weiterhin seine Lieblingsfarbe auswählen. Ob nur eine Farbe oder mehrere wählbar sind, überlasse ich dir. 
+        Die Formulardaten sollen mittels POST an eine andere PHP-Seite gesendet werden, auf der die Daten ausgegeben werden.
+    -->
+
+    <form action="register_result.php" method="POST">
+        <input type="text" name="name" placeholder="Name*"><br>
+        <input type="number" name="alter" placeholder="Alter*"><br>
+        <input type="email" name="email" placeholder="E-Mail*"><br>
+        <textarea name="beschreibung" placeholder="Beschreibung"></textarea><br>
+        Lieblingsfarbe: <input type="color" name="farbe"><br>
+        <input type="submit" value="Absenden">
+    </form>
+</body>
+</html>
