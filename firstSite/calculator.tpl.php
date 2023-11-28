@@ -1,45 +1,61 @@
 <?php
 function calculate($number1, $number2, $operator)
 {
-    return match ($operator) {
-        "+" => $number1 + $number2,
-        "-" => $number1 - $number2,
-        "*" => $number1 * $number2,
-        "/" => $number1 / $number2
-    };
+    switch ($operator) {
+        case "+":
+            $result = $number1 + $number2;
+            break;
+        case "-":
+            $result = $number1 - $number2;
+            break;
+        case "*":
+            $result = $number1 * $number2;
+            break;
+        case "/":
+            $result = $number1 / $number2;
+            break;
+        default:
+            return "Fehlerhafter Operator!";
+            break;
+    }
+
+    return "$number1 $operator $number2 = $result";
 }
 
-function validateForm()
+function validateForm($resultDataFile)
 {
-    if (isset($_REQUEST["number1"]) && isset($_REQUEST["number2"]) && isset($_REQUEST["operator"])) {
-        $number1 = htmlspecialchars($_REQUEST["number1"]);
-        $number2 = htmlspecialchars($_REQUEST["number2"]);
-        $operator = htmlspecialchars($_REQUEST["operator"]);
+    if (isset($_REQUEST["number1"], $_REQUEST["number2"], $_REQUEST["operator"])) {
+        $number1 = $_REQUEST["number1"];
+        $number2 = $_REQUEST["number2"];
+        $operator = $_REQUEST["operator"];
 
-        if (!empty($number1) && !empty($number1)) {
-            if (is_numeric($number1) && is_numeric($number2) && in_array($operator, ["+", "-", "*", "/"])) {
-                if (!($number2 == 0 && $operator == "/"))
-                    return "$number1 $operator $number2 = " . calculate($number1, $number2, $operator);
-                else
-                    return "Du kannst nicht durch 0 teilen!";
+        if (is_numeric($number1) && is_numeric($number2)) {
+            if (!($number2 == 0 && $operator == "/")) {
+                $result = calculate($number1, $number2, $operator);
+
+                file_put_contents($resultDataFile, $result);
+
+                return "Result: $result";
             } else
-                return "Das gehört hier nicht rein!";
+                return "Du kannst nicht durch 0 teilen!";
         } else
-            return "Mindestens eine Eingabe fehlt!";
+            return "Mindestens eine Eingabe ist fehlerhaft oder leer!";
     } else
         return "Irgendetwas fehlt! &#129300;";
 }
 
-if (isset($_REQUEST["submit"])) {
+$resultDataFile = "result.data.txt";
+
+$resultData = file_exists($resultDataFile) ? "Previous result: " . file_get_contents($resultDataFile) : "";
 ?>
 
-    <p class="text-center text-gray-700 text-xl">
-        Result:
-    </p>
+<p class="text-center text-gray-700 text-xl">
+    <?php
+    if (isset($_REQUEST["submit"]))
+        echo validateForm($resultDataFile);
+    ?>
+</p>
 
-    <p class="text-center text-gray-700 text-xl mt-4">
-        <?= validateForm(); ?>
-    </p>
-
-<?php
-}
+<p class="text-center text-gray-500 text-m mt-4">
+    <?= $resultData; ?>
+</p>
