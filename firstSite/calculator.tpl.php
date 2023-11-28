@@ -16,9 +16,8 @@ function validateForm()
         $number2 = htmlspecialchars($_REQUEST["number2"]);
         $operator = htmlspecialchars($_REQUEST["operator"]);
 
-        if ($number1 !== "" && $number2 !== "") {
-
-            if (is_numeric($number1) && is_numeric($number2) && in_array($operator, array("+", "-", "*", "/"))) {
+        if (!empty($number1) && !empty($number1)) {
+            if (is_numeric($number1) && is_numeric($number2) && in_array($operator, ["+", "-", "*", "/"])) {
                 if ($number2 == 0 && $operator == "/")
                     return "Du kannst nicht durch 0 teilen!";
                 else
