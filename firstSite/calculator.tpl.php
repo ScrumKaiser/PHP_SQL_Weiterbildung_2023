@@ -18,10 +18,10 @@ function validateForm()
 
         if (!empty($number1) && !empty($number1)) {
             if (is_numeric($number1) && is_numeric($number2) && in_array($operator, ["+", "-", "*", "/"])) {
-                if ($number2 == 0 && $operator == "/")
-                    return "Du kannst nicht durch 0 teilen!";
-                else
+                if (!($number2 == 0 && $operator == "/"))
                     return "$number1 $operator $number2 = " . calculate($number1, $number2, $operator);
+                else
+                    return "Du kannst nicht durch 0 teilen!";
             } else
                 return "Das gehört hier nicht rein!";
         } else
