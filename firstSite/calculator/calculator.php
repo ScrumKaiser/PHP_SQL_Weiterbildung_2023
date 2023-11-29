@@ -39,7 +39,11 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <button name="submit" class="bg-blue-500 hover :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Calculate Result </button>
+                                Calculate Result
+                            </button>
+                            <button name="delsum" class="bg-red-500 hover :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                Del Sum
+                            </button>
                         </div>
                     </form>
 
