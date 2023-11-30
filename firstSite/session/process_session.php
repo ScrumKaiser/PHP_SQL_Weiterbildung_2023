@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$name = $_POST["name"] ?? "";
+$name = trim($_POST["name"] ?? "");
 $process = $_POST["process"] ?? null;
 
 if ($process == "login") {
