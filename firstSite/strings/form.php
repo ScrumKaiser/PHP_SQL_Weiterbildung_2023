@@ -39,7 +39,7 @@
     </form>
     <br>
     <?php
-    require_once "functions.php";
+    require_once "form.tpl.php";
     ?>
 </body>
 
