@@ -4,12 +4,14 @@ session_start();
 $error = $_SESSION["error"] ?? "";
 unset($_SESSION["error"]);
 
-$feedbackDataFile = "feedbacks.save";
+$feedbacksFile = "feedbacks.save";
 
-if (file_exists($feedbackDataFile))
-    $feedbackData = unserialize(file_get_contents($feedbackDataFile));
+if (file_exists($feedbacksFile))
+    $feedbacks = unserialize(file_get_contents($feedbacksFile));
 else
-    $feedbackData = [];
+    $feedbacks = [];
+
+$feedbacksCount = count($feedbacks);
 
 $ratings = [
     ["name" => "breathtaking", "emoji" => "😱", "count" => 0, "value" => 0],

@@ -33,9 +33,7 @@
             foreach ($ratings as $i => $rating) {
             ?>
                 <input type="radio" class="btn-check" id="rating<?= $i; ?>" name="rating" value="<?= $i; ?>" <?= $i == 0 ? "checked" : ""; ?>>
-                <label class="btn btn-light btn-lg" for="rating<?= $i; ?>">
-                    <?= $rating["emoji"]; ?>
-                </label>
+                <label class="btn btn-light btn-lg" for="rating<?= $i; ?>"><?= $rating["emoji"]; ?></label>
             <?php
             }
             ?>

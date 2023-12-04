@@ -18,8 +18,8 @@ if (!empty($username) && !empty($email) && isset($ratings[$rating]) && $comment 
             "comment" => $comment
         ];
 
-        $feedbackData[] = $newFeedback;
-        file_put_contents($feedbackDataFile, serialize($feedbackData));
+        $feedbacks[] = $newFeedback;
+        file_put_contents($feedbacksFile, serialize($feedbacks));
 
         $error = "success";
     } else

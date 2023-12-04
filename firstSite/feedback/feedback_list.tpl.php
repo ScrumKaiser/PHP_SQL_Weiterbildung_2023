@@ -1,6 +1,6 @@
 <div class="col">
     <?php
-    if ($feedbackCount > 0) {
+    if ($feedbacksCount > 0) {
     ?>
         <table class="table table-striped">
             <thead>
@@ -13,9 +13,9 @@
             </thead>
             <tbody>
                 <?php
-                $feedbackData = array_reverse($feedbackData);
+                $feedbacks = array_reverse($feedbacks);
 
-                foreach ($feedbackData as $feedback) {
+                foreach ($feedbacks as $feedback) {
                 ?>
                     <tr>
                         <td>
