@@ -1,3 +1,3 @@
-###Übung 29:
+### Übung 29:
 
 Programmiere eine PHP-Seite, die ein Formular enthält. In diesem kann der Nutzer seinen Namen eintragen. Der Name soll in der Session gespeichert werden. Ist der Name in der Session gespeichert, soll beim Neuladen der Seite kein Formular angezeigt werden, sondern der Name sowie ein Button zum Leeren der Session. Klickt der Nutzer auf den Button, wird der Wert aus der Session gelöscht und der Nutzer auf die Seite https://www.helloworld.org/ weitergeleitet.
