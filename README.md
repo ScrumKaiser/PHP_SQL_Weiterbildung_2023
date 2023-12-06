@@ -1,4 +1,4 @@
-### Zertifizierte:r Softwareentwickler:in PHP & MySQL 30.10.2023-26.01.2024
+### Zertifizierter Softwareentwickler PHP & MySQL 30.10.2023-26.01.2024
 
 **Kursdauer:** 60 Tage / 540 UE
 
