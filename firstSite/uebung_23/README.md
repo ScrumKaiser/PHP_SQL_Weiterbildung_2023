@@ -1,3 +1,3 @@
-### Übung 29:
+### Übung 23:
 
-Programmiere eine PHP-Seite, die ein Formular enthält. In diesem kann der Nutzer seinen Namen eintragen. Der Name soll in der Session gespeichert werden. Ist der Name in der Session gespeichert, soll beim Neuladen der Seite kein Formular angezeigt werden, sondern der Name sowie ein Button zum Leeren der Session. Klickt der Nutzer auf den Button, wird der Wert aus der Session gelöscht und der Nutzer auf die Seite https://www.helloworld.org/ weitergeleitet.
+Schreibe eine PHP-Seite, die ein Formular beinhaltet. In diesem Formular muss der Nutzer seinen Namen, sein Alter und seine E-Mail-Adresse in Inputfeldern definieren. Weiterhin kann der Nutzer eine Beschreibung über sich in einem Textarea-Feld definieren. Er kann weiterhin seine Lieblingsfarbe auswählen. Ob nur eine Farbe oder mehrere wählbar sind, überlasse ich dir. Die Formulardaten sollen mittels POST an eine andere PHP-Seite gesendet werden, auf der die Daten ausgegeben werden.
