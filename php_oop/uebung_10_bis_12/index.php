@@ -1,5 +1,7 @@
 <?php
-require_once "konsole.php";
+declare(strict_types=1);
+
+require_once("konsole.php");
 
 function konsoleAnzeigen(Konsole $konsole): string
 {
@@ -13,8 +15,8 @@ $konsole = new Konsole();
 echo konsoleAnzeigen($konsole);
 echo "<br>";
 
-$konsole->setModell("Playstation 5");
-$konsole->setHersteller("Sony");
-$konsole->setProduktionsjahr(2020);
+$konsole->setModell("Playstation 5")
+->setHersteller("Sony")
+->setProduktionsjahr(2020);
 
 echo konsoleAnzeigen($konsole);
