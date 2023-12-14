@@ -62,24 +62,24 @@ class Person
         return $this;
     }
 
-    public function getHausnummer(): int
+    public function getHausnummer(): string
     {
         return $this->getAdresse()->getHausnummer();
     }
 
-    public function setHausnummer(int $hausnummer): Person
+    public function setHausnummer(string $hausnummer): Person
     {
         $this->getAdresse()->setHausnummer($hausnummer);
 
         return $this;
     }
 
-    public function getPlz(): int
+    public function getPlz(): string
     {
         return $this->getAdresse()->getPlz();
     }
 
-    public function setPlz(int $plz): Person
+    public function setPlz(string $plz): Person
     {
         $this->getAdresse()->setPlz($plz);
 
@@ -103,8 +103,8 @@ class Person
      */
     public function __construct(string $name, string $email, Adresse $adresse = new Adresse())
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->adresse = $adresse;
+        $this->setName($name);
+        $this->setEmail($email);
+        $this->setAdresse($adresse);
     }
 }

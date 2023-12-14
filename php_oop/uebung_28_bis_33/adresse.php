@@ -5,8 +5,8 @@ class Adresse
     /// Attribute
     ///
     protected string $strasse = "N/A";
-    protected int $hausnummer = 0;
-    protected int $plz = 0;
+    protected string $hausnummer = "N/A";
+    protected string $plz = "N/A";
     protected string $ort = "N/A";
 
     ///
@@ -24,7 +24,7 @@ class Adresse
         return $this;
     }
 
-    public function getHausnummer(): int
+    public function getHausnummer(): string
     {
         return $this->hausnummer;
     }
@@ -36,12 +36,12 @@ class Adresse
         return $this;
     }
 
-    public function getPlz(): int
+    public function getPlz(): string
     {
         return $this->plz;
     }
 
-    public function setPlz(int $plz): Adresse
+    public function setPlz(string $plz): Adresse
     {
         $this->plz = $plz;
 

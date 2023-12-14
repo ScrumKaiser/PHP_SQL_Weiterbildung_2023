@@ -8,7 +8,7 @@ require_once("adresse.php");
 /* // Konstruktion Übung 28 bis 30
 $adresseMustermann = new Adresse();
 $adresseMustermann->setStrasse("Musterstraße 1")
-    ->setPlz(12345)
+    ->setPlz("12345")
     ->setOrt("Musterstadt");
 
 $personMustermann = new Person();
@@ -22,8 +22,8 @@ $personMustermann = new Person(
     "mustermann.max@example.com"
 );
 $personMustermann->setStrasse("Musterstraße")
-    ->setHausnummer(1)
-    ->setPlz(12345)
+    ->setHausnummer("1")
+    ->setPlz("12345")
     ->setOrt("Musterstadt");
 
 /* // Ausgabe Übung 28
