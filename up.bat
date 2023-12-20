@@ -1,1 +1,1 @@
-php routinglaravel/artisan serve --host olli.test --port 80
+php routinglaravel/artisan serve --host routinglaravel.test --port 80
