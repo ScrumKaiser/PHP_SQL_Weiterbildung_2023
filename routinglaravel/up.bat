@@ -1,0 +1,1 @@
+php artisan serve --host routinglaravel.test --port 80

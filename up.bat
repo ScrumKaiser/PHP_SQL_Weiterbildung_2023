@@ -1,1 +1,0 @@
-php routinglaravel/artisan serve --host routinglaravel.test --port 80

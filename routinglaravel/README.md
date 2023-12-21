@@ -40,3 +40,24 @@ Prüfe mit den nachfolgenden URLs, ob deine erwartete Ausgabe wiedergegeben wird
     http://routinglaravel.test/question?question=Warum%20ist%20die%20Erde%20rund?
     http://routinglaravel.test/question?question=Warum%20ist%20die%20Erde%20rund?&id=3&file=true
     http://routinglaravel.test/question?id=3&file=false
+
+### Übung 8: Deine erste View
+
+Erstelle für unsere Action create im CertificateController eine View mit beliebigem Namen und stelle den Text "Zertifikat erstellen" schöner dar.
+
+### Übung 9: Eine Namensliste in deiner View wiedergeben
+
+Erstelle eine Custom Action in unserem CertificateController. Diese Action soll nameList() heißen. Weise der Custom Action eine Route zu. Im Controller soll ein Array mit mindestens zehn Namen erstellt werden. Erstelle eine View mit einem beliebigen Namen und gib die Variable des Arrays an die View weiter. In der View erstellst du einen foreach loop und gibst die Namen in einer unordered list (ul) aus.
+
+### Übung 10: Weg von unschönem PHP, hin zu Blade Shortcuts
+
+Baue den Code der Namensliste aus der Übung  9 des View-Abschnitts so um, dass du die Schleife mit Blade-Shortcuts realisierst und nur fünf Iterationen durchgeführt werden. 
+
+### Übung 11: Anhand von Nutzerdaten entscheiden wir über die Farbigkeit der Nutzer in der Namensliste
+
+Nutze die im Begleitmaterial enthaltenen vorgegebenen Nutzerdaten. Du kannst sie in deinen Controller kopieren. Erstelle dann eine neue Action in unserem Controller CertificateController und registriere die Action mit einer neuen Route. Als Wiedergabewert der Action soll eine View genutzt werden. Die View musst du ebenfalls erstellen. Die Nutzerdaten sollen als Parameter an die View weitergegeben werden. Erstelle eine Schleife, die über alle Elemente iteriert. Mithilfe einer Kontrollstruktur soll geprüft werden, ob die jeweilige Person älter oder jünger als 18 ist und ob sie eine Telefonnummer hat. Es soll als Wiedergabe immer der Name und die E-Mail-Adresse in der jeweiligen Farbe angezeigt werden.
+
+    Alter < 18 und keine Telefonnummer => grün
+    Alter ≥18 und keine Telefonnumer => blau
+    Alter < 18 und Telefonnummer => rot
+    Alter ≥ 18 und Telefonnummer => magenta
