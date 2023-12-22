@@ -75,6 +75,6 @@ Route::get('/question', function (Request $request) {
 Route::get('/certificatesNameList', 'CertificateController@nameList');
 
 /**
- * Übung 11
+ * Übung 11 und 12
  */
 Route::get('/certificatesUsersList', 'CertificateController@usersList');

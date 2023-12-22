@@ -61,3 +61,11 @@ Nutze die im Begleitmaterial enthaltenen vorgegebenen Nutzerdaten. Du kannst sie
     Alter ≥18 und keine Telefonnumer => blau
     Alter < 18 und Telefonnummer => rot
     Alter ≥ 18 und Telefonnummer => magenta
+
+### Übung 12: Mithilfe von Blade Templates und Semantic UI sorgst du für eine hübschere Namensliste
+
+Jetzt sollst du dein erstes Template erstellen. Dazu nutzen wir die View aus Übung 11 sowie die Controller Action und die registrierte Route.
+
+Erstelle ein Layout mit dem Namen app.blade.php. In dieses Layout importierst du im Head-Abschnitt Semantic UI.
+
+Anschließend legst du eine Section fest, in der unser Inhalt der Nutzerdaten angezeigt wird. Zudem erstellst du eine View mit einem Header und bindest diesen im Layout ein. Die Schleife mit den Bedingungen kannst du übrigens entfernen. Deine View aus Übung 11 soll das erstellte Layout erweitern. Die Nutzerdaten gibst du in schönerer Darstellung aus.
