@@ -78,3 +78,10 @@ Route::get('/certificatesNameList', 'CertificateController@nameList');
  * Übung 11 und 12
  */
 Route::get('/certificatesUsersList', 'CertificateController@usersList');
+
+/**
+ * Übung 17
+ */
+Route::get('/interests', 'InterestController@SelectAll');
+Route::get('/interests/insert/{text?}', 'InterestController@Insert');
+Route::get('/interests/delete/{id?}', 'InterestController@Delete');

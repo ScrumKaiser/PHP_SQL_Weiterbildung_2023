@@ -69,3 +69,19 @@ Jetzt sollst du dein erstes Template erstellen. Dazu nutzen wir die View aus Üb
 Erstelle ein Layout mit dem Namen app.blade.php. In dieses Layout importierst du im Head-Abschnitt Semantic UI.
 
 Anschließend legst du eine Section fest, in der unser Inhalt der Nutzerdaten angezeigt wird. Zudem erstellst du eine View mit einem Header und bindest diesen im Layout ein. Die Schleife mit den Bedingungen kannst du übrigens entfernen. Deine View aus Übung 11 soll das erstellte Layout erweitern. Die Nutzerdaten gibst du in schönerer Darstellung aus.
+
+### Übung 14: Jeder kann Tabellen von Hand erstellen — wir verwenden Migrations
+
+Erstelle eine Migration, die eine Tabelle mit dem Namen posts erstellen soll.
+
+### Übung 15: Die Posts sollen mithilfe von Interessen kategorisiert werden
+
+Füge eine Migration mit dem Tabellennamen interests hinzu. Diese Migration soll eine Spalte mit dem Namen "id" samt Autoincrement erstellen sowie eine Spalte mit dem Namen "text", in der eine Zeichenfolge mit mindestens 30 Zeichen gespeichert werden kann. Es sollen außerdem die Timestamps für on_create und on_update gesichert werden können. Eine interest repräsentiert ein Interesse. Betrachte die Interessen einfach als Kategorien. Der Nutzer kann z. B. einen Post zu einem leckeren Rezept hinzufügen und diesen der Interesse Kochen zuordnen. Zu dieser Beziehung kommen wir aber an späterer Stelle.
+
+### Übung 17: Interessen, Datenbank und Controller
+
+    Erstelle einen Controller, um unsere Tabelle interests mit Daten zu befüllen.
+    Erstelle eine Action, die mit einer Abfrage alle Interessen wiedergibt.
+    Erstelle eine Action samt Raw SQL Query, mit der sich Interessen anhand der Route-Parameter erstellen lassen.
+    Erstelle eine Action samt Raw SQL Query, um einzelne Interessen zu löschen.
+    Registriere die drei Actions in Routes.
