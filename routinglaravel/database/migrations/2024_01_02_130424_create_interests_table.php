@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('interests', function (Blueprint $table) {
             $table->id();
             $table->char('text', 30);
-            $table->timestamp('on_create')->useCurrent();
-            $table->timestamp('on_update')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamps();
+            // $table->timestamp('on_create')->useCurrent();
+            // $table->timestamp('on_update')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

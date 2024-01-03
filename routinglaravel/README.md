@@ -85,3 +85,27 @@ Füge eine Migration mit dem Tabellennamen interests hinzu. Diese Migration soll
     Erstelle eine Action samt Raw SQL Query, mit der sich Interessen anhand der Route-Parameter erstellen lassen.
     Erstelle eine Action samt Raw SQL Query, um einzelne Interessen zu löschen.
     Registriere die drei Actions in Routes.
+
+### Übung 18: Interessen und Posts für die spätere Benutzung hinzufügen
+
+In dieser Lektion werden wir mit einigen Daten arbeiten. Deshalb ist es notwendig, dass wir zwei Migrations durchführen und die Tabellen mit Daten befüllen.
+
+    Zum einen nutzen wir die create_interests_table-Migration. Diese sollte aus einer der vorherigen Übungen schon bei dir vorhanden sein.
+    Zum anderen nutzen wir die Migration create_posts_table. Ersetze zuerst die up-Funktion der create_posts_table mit folgendem Code.
+    
+Nachdem du dies getan hast, führe den Befehl php artisan migrate:fresh aus. Damit wir mit den gleichen Daten in den Übungen arbeiten, wäre es sinnvoll, deine Tabelle mit den vorgegebenen Daten zu befüllen. Erstelle dazu eine Controller Action oder eine Closure Route. Füge dort den nachfolgenden Code ein. Der Code befüllt die Tabellen »interests« sowie »posts«. Wie du schon siehst, habe ich jeweils ein Array mit Daten erstellt. Über beide Arrays iteriere ich mit einer foreach-Schleife. Mit der Funktion (object) werden die jeweiligen Nested Arrays als stdClass-Objekte verfügbar. Dadurch kann ich wie bei gewöhnlichen Objekten auf die Array-Parameter zugreifen. Die beiden Spalten created_at und updated_at werden mit der timestamp()-Methode in der Migration erstellt. Die Carbon-Bibliothek wird seit Laravel-Version 5.8 offiziell unterstützt. Sie bietet uns Zugriff auf erweiterte Date/Time Funktionen. Wir behandeln diese später noch genauer. In Eloquent werden »created_at« und »updated_at« automatisch befüllt. Wenn wir jedoch den Query Builder verwenden, müssen wir die beiden Spalten manuell befüllen. Die Methode now() von Carbon gibt einen aktuellen Timestamp wieder. Diesen fügen wir in unsere beiden Spalten ein.
+
+### Übung 19: Die Posts und der Query Builder
+
+Langsam geht es ans Eingemachte! Wir werden die Daten und Tabellen aus der vorherigen Übung jetzt richtig bearbeiten. Du sollst die Aufgabe möglichst effizient und mit der passendsten Methode lösen. Ein wichtiger Punkt ist dabei: Es gibt bei den meisten Aufgaben nicht die eine perfekte Lösung, manche Lösungen sind aber eleganter. Es heißt ja sprichwörtlich: Viele Wege führen nach Rom. Solange die Abfragen bei dir das erwünschte Resultat erfüllen, gilt die Aufgabe als bestanden. Probiere es ruhig aus. Falls du alle Daten löschst oder die Tabelle crasht, kannst du mit php artisan migrate:fresh und dem Code der vorherigen Aufgabe den alten Stand wiederherstellen.
+
+Versuche möglichst alle Aufgaben zu lösen. Lasse dir die Variablen mit var_dump() ,dd() oder ddd() ausgeben und prüfe das Ergebnis.
+
+Erstelle eine Abfrage, die alle Posts auswählt. Speichere diese Abfrage in einer Variable, sodass wir diese mehrfach verwenden können. Diese Variable werden wir für die anderen Aufgaben nutzen, um den Code nicht immer neu zu schreiben (Query Chaining).
+
+    Gib die Gesamtzahl der Posts aus.
+    Füge einen beliebigen Post mit dem Query Builder hinzu.
+    Aktualisiere den Text eines Posts, dessen »id« zwischen 6 und 10 ist und keine »interest_id« hat, auf "neuer Text".
+    Gib für den Post mit der »id« 1 das Erstelldatum aus.
+    Frage alle Posts ab und sortiere die »id« absteigend. Die Posts ohne »text« und ohne »interest_id« sollen nicht ausgegeben werden.
+    Lösche alle Posts, die keine »interest_id« oder »text« haben.

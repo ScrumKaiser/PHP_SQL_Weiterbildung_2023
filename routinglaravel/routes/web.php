@@ -80,8 +80,17 @@ Route::get('/certificatesNameList', 'CertificateController@nameList');
 Route::get('/certificatesUsersList', 'CertificateController@usersList');
 
 /**
- * Übung 17
+ * Übung 17 bis 19
  */
-Route::get('/interests', 'InterestController@SelectAll');
-Route::get('/interests/insert/{text?}', 'InterestController@Insert');
-Route::get('/interests/delete/{id?}', 'InterestController@Delete');
+Route::get('/interests', 'InterestController@index');
+Route::get('/interests/store/{text?}', 'InterestController@store');
+Route::get('/interests/destroy/{id?}', 'InterestController@destroy');
+
+Route::get('/posts/count', 'PostController@count');
+Route::get('/posts/store/{title}/{text}/{interest}', 'PostController@store');
+Route::get('/posts/updateWithId', 'PostController@updateWithId');
+Route::get('/posts/showCreateDate/{id}', 'PostController@showCreateDate');
+Route::get('/posts/sorted', 'PostController@indexSorted');
+Route::get('/posts/deleteEmptyPosts', 'PostController@deleteEmptyPosts');
+
+Route::get('/interests/insertPostsAndInterests', 'InterestController@insertPostsAndInterests');
