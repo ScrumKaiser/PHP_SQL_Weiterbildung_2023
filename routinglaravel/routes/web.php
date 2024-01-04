@@ -94,3 +94,10 @@ Route::get('/posts/sorted', 'PostController@indexSorted');
 Route::get('/posts/deleteEmptyPosts', 'PostController@deleteEmptyPosts');
 
 Route::get('/interests/insertPostsAndInterests', 'InterestController@insertPostsAndInterests');
+
+/**
+ * Übung 21
+ */
+Route::get('/articles', 'ArticleController@index');
+Route::get('/articles/softDelete/{id}', 'ArticleController@softDelete');
+Route::get('/articles/fillDatabase', 'ArticleController@fillDatabase');

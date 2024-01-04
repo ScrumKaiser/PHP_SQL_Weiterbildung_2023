@@ -109,3 +109,17 @@ Erstelle eine Abfrage, die alle Posts auswählt. Speichere diese Abfrage in eine
     Gib für den Post mit der »id« 1 das Erstelldatum aus.
     Frage alle Posts ab und sortiere die »id« absteigend. Die Posts ohne »text« und ohne »interest_id« sollen nicht ausgegeben werden.
     Lösche alle Posts, die keine »interest_id« oder »text« haben.
+
+### Übung 20: Erstelle Model für Artikel und Interessen — Eloquent Model keine Fashionmodel
+
+Du wirst zu Anfang dieser Lektion die CRUD-Operationen mit Eloquent lernen und diese üben. Erstelle dazu ein Model mit dem Namen Article sowie eine zugehörige Migration. Die bereits vorhandene Tabelle interests soll ebenfalls als Model verfügbar sein. Erstelle in der Migration für die Articles folgende Spalten:
+
+    interest_id
+    title
+    text
+
+Die ID sowie die Timestamps sollten schon vorhanden sein. Du brauchst diese also nicht neu hinzuzufügen. Die Spaltentypen sowie Indexe und Attribute kannst du selbstständig setzen.
+
+### Übung 21: Kreatives Ausprobieren von Eloquent
+
+Erstelle einige Artikel sowie dazugehörige Interessen. Probiere die CRUD-Methoden sowie Mass Assignment, Soft Deleting und Sub Queries aus. Deiner Kreativität sind keine Grenzen gesetzt.
