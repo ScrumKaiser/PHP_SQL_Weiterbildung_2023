@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Article;
 use App\Models\Interest;
+use App\Models\Tag;
 
 class ArticleController extends Controller
 {
@@ -15,26 +16,53 @@ class ArticleController extends Controller
         $article = new Article;
         $article->title = 'Bundesliga Ergebnis';
         $article->text = 'Leverkusen 4:0 Bochum';
-        $article->interest_id = 4;
+        $article->likes = 13;
         $article->save();
+        $article->interests()->attach(4);
+
+        $tag = new Tag;
+        $tag->title = 'Sport';
+        $tag->article_id = 1;
+        $tag->save();
+
+        $tag = new Tag;
+        $tag->title = 'Bundesliga';
+        $tag->article_id = 1;
+        $tag->save();
 
         // Mass Assignment
         Article::create([
             'title' => 'Rezept der Woche',
             'text' => 'Currywurst mit Pommes.',
-            'interest_id' => 2
+            'likes' => 25
+        ])->interests()->attach(2);
+        Tag::create([
+            'title' => 'Rezept',
+            'article_id' => 2
         ]);
 
         Article::create([
             'title' => 'Rezept der Woche',
             'text' => 'Currywurst mit Pommes.',
-            'interest_id' => 2
+            'likes' => 25
+        ])->interests()->attach(2);
+        Tag::create([
+            'title' => 'Rezept',
+            'article_id' => 3
         ]);
 
         Article::create([
             'title' => 'Best of Rock',
             'text' => 'Nirvana - Smells Like Teen Spirit von Nirvana',
-            'interest_id' => 3
+            'likes' => 42
+        ])->interests()->attach(3);
+        Tag::create([
+            'title' => 'Rock',
+            'article_id' => 4
+        ]);
+        Tag::create([
+            'title' => 'Empfehlung',
+            'article_id' => 4
         ]);
 
         echo 'Daten erfolgreich eingefügt.';
@@ -49,21 +77,20 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        $articles = Article::addSelect(['interest' => Interest::select('text')
-            ->whereColumn('id', 'interest_id')->limit(1)])
-            ->withTrashed()->get();
 
         foreach ($articles as $article) {
-            $ausgabe = '(' . $article->interest . ') '
-                . '<b>' . $article->title . ':</b> '
-                . $article->text;
+            $ausgabe = '<h3>' . $article->title . '</h3>'
+                . $article->text . '<br><br>'
+                . '<u>Likes:</u> ' . $article->likes . '<br>';
+            $ausgabe .= '<u>Interests:</u> ';
+            foreach ($article->interests as $interest)
+                $ausgabe .= $interest->text . ' ';
 
-            if ($article->trashed())
-                $ausgabe = '<s>' . $ausgabe . '</s>';
+            $ausgabe .= '<br><u>Tags:</u> ';
+            foreach ($article->tags as $tag)
+                $ausgabe .=  $tag->title . ' ';
 
-            $ausgabe .= '<br>';
-
-            echo $ausgabe;
+            echo $ausgabe . "<br><br><hr>";
         }
     }
 }

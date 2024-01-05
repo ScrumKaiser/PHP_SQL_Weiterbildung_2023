@@ -11,5 +11,27 @@ class Article extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'text', 'interest_id'];
+    protected $fillable = ['title', 'text', 'likes', 'interest_id'];
+
+    protected $with = ['interests', 'tags'];
+
+    public function interests()
+    {
+        return $this->belongsToMany('App\Models\Interest')->withTimestamps();
+    }
+
+    public function tags()
+    {
+        return $this->hasMany('App\Models\Tag');
+    }
+
+    public function getLikesAttribute()
+    {
+        return decrypt($this->attributes['likes']);
+    }
+
+    public function setLikesAttribute($value)
+    {
+        $this->attributes['likes'] = encrypt($value);
+    }
 }

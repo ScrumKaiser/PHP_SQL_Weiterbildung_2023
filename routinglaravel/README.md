@@ -123,3 +123,7 @@ Die ID sowie die Timestamps sollten schon vorhanden sein. Du brauchst diese also
 ### Übung 21: Kreatives Ausprobieren von Eloquent
 
 Erstelle einige Artikel sowie dazugehörige Interessen. Probiere die CRUD-Methoden sowie Mass Assignment, Soft Deleting und Sub Queries aus. Deiner Kreativität sind keine Grenzen gesetzt.
+
+### Übung 22: Tags, verschlüsselte Likes und jede Menge Beziehungen
+
+Erstelle ein Model sowie eine Migration für die Tags. Erstelle dann eine Many-To-Many-Beziehung zwischen den Interessen und den Artikeln sowie eine One-To-Many-Beziehung zwischen den Artikeln und den Tags. Jeder Tag soll bei Abruf aus der Datenbank großgeschrieben werden. Die Like-Anzahl der Artikel soll verschlüsselt in der Datenbank gespeichert werden. Das machen wir natürlich nur zu Übungszwecken. Im produktiven Einsatz würde man dies nicht machen, da die Like-Anzahl nicht sicherheitsrelevant ist. Außerdem sollen beim Abruf eines Artikels gleich alle Tags mitgeladen werden.
