@@ -98,6 +98,13 @@ Route::get('/interests/insertPostsAndInterests', 'InterestController@insertPosts
 /**
  * Übung 21
  */
-Route::get('/articles', 'ArticleController@index');
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
 Route::get('/articles/softDelete/{id}', 'ArticleController@softDelete');
 Route::get('/articles/fillDatabase', 'ArticleController@fillDatabase');
+
+/**
+ * Übung 25
+ */
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
+Route::post('/articles/store', 'ArticleController@store')->name('articles.store');
+Route::patch('/articles/update/{id}', 'ArticleController@update')->name('articles.update');

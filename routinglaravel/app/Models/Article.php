@@ -11,7 +11,7 @@ class Article extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'text', 'likes', 'interest_id'];
+    protected $fillable = ['title', 'text', 'likes'];
 
     protected $with = ['interests', 'tags'];
 

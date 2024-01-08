@@ -28,6 +28,7 @@
                 <div class="header">Articles</div>
                 <a href="/articles/softDelete/3" class="item">Article soft deleten</a>
                 <a href="/articles" class="item">Alle Articles anzeigen</a>
+                <a href="{{ route('articles.create')}}" class="item">Article erstellen</a>
                 <div class="divider"></div>
                 <div class="header">Datenbank</div>
                 <a href="/interests/insertPostsAndInterests" class="item">Interests und Posts einfügen</a>

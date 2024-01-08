@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
 use App\Models\Interest;
 use App\Models\Tag;
@@ -78,19 +79,28 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
 
-        foreach ($articles as $article) {
-            $ausgabe = '<h3>' . $article->title . '</h3>'
-                . $article->text . '<br><br>'
-                . '<u>Likes:</u> ' . $article->likes . '<br>';
-            $ausgabe .= '<u>Interests:</u> ';
-            foreach ($article->interests as $interest)
-                $ausgabe .= $interest->text . ' ';
+        return (view('articles.index', compact('articles')));
+    }
 
-            $ausgabe .= '<br><u>Tags:</u> ';
-            foreach ($article->tags as $tag)
-                $ausgabe .=  $tag->title . ' ';
+    public function create()
+    {
+        return view('articles.create');
+    }
 
-            echo $ausgabe . "<br><br><hr>";
-        }
+    public function store(ArticleStoreRequest $request)
+    {
+        $validated = $request->validated();
+
+        Article::create($validated)->interests()->attach(1);
+
+        return redirect()->route('articles.index');
+    }
+
+    public function update(ArticleStoreRequest $request, int $id)
+    {
+        if ($id === session('id'))
+            Article::find($id)->update($request->all());
+
+        return redirect()->route('articles.index');
     }
 }
