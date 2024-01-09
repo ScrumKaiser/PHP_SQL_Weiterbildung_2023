@@ -131,3 +131,11 @@ Erstelle ein Model sowie eine Migration für die Tags. Erstelle dann eine Many-T
 ### Übung 25: Zensur in deiner Applikation. Wir erlauben nur Laravel-Artikel
 
 Um die Validierung kennenzulernen, erstelle eine View und nutze diese in deinem ArticleController als Wiedergabewert der Action create. In dieser View soll ein Formular vorhanden sein. Erstelle für das Formular eine Validierung. Erstelle eine neue Validierungsregel. Diese Regel soll validieren, ob der Titel des Artikels das Wort »Laravel« enthält. Beachte bei der Validierung das Error Handling. Wenn kein Fehler auftritt, kannst du in der store-Action einen neuen Artikel erstellen.
+
+### Übung 26: Sinnfreie Übungsfactory
+
+Erstelle eine Factory für die Artikel. Der Titel soll ein Stadtname und der Text eine IBAN sein. Ja ich weiß, das ist inhaltlich völlig sinnfrei.
+
+### Übung 27: Daten in der Session speichern
+
+Speichere einen Artikel, der mit der Action show aufgerufen wird, in der Session. Lies diesen aus, indem du in der Action index den zuletzt aufgerufenen Artikelnamen anzeigst.

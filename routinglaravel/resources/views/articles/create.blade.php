@@ -23,8 +23,11 @@
     <br>
 
     {{-- Update-Test mit Session-Absicherung, um die Übergabe von falschen IDs zu verhindern --}}
-    @php session(['id' => 1]); @endphp
-    <form action="{{ route('articles.update', 1) }}" method="POST">
+    @php
+        $id = 1;
+        session()->flash('id', $id);
+    @endphp
+    <form action="{{ route('articles.update', $id) }}" method="POST">
         @csrf
         @method('PATCH')
         <div class="form-group">

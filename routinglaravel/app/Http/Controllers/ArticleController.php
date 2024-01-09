@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
-use App\Models\Interest;
 use App\Models\Tag;
 
 class ArticleController extends Controller
@@ -96,11 +95,20 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-    public function update(ArticleStoreRequest $request, int $id)
+    public function update(ArticleStoreRequest $request, $id)
     {
         if ($id === session('id'))
             Article::find($id)->update($request->all());
 
         return redirect()->route('articles.index');
+    }
+
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        session(['lastArticle' => $article]);
+
+        return (view('articles.show', compact('article')));
     }
 }

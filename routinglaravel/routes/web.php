@@ -108,3 +108,8 @@ Route::get('/articles/fillDatabase', 'ArticleController@fillDatabase');
 Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
 Route::post('/articles/store', 'ArticleController@store')->name('articles.store');
 Route::patch('/articles/update/{id}', 'ArticleController@update')->name('articles.update');
+
+/**
+ * Übung 27
+ */
+ Route::get('/articles/{id}', 'ArticleController@show')->name('articles.show');
