@@ -112,4 +112,4 @@ Route::patch('/articles/update/{id}', 'ArticleController@update')->name('article
 /**
  * Übung 27
  */
- Route::get('/articles/{id}', 'ArticleController@show')->name('articles.show');
+Route::get('/articles/{id}', 'ArticleController@show')->name('articles.show');

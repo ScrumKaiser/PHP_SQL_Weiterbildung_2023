@@ -4,14 +4,18 @@
     @if (session()->has('lastArticle'))
         <h1 style="text-align:center">
             <a href="{{ route('articles.show', session('lastArticle')->id) }}">
-                Zuletzt angezeigter Artikel: "{{ session('lastArticle')->title }}"
+                Zuletzt angesehen: "{{ session('lastArticle')->title }}"
             </a>
         </h1>
     @endif
 
     @foreach ($articles as $article)
         <hr>
-        <h3 style="color:{{ $article->title }}">{{ $article->title }}</h3>
+        <h3>
+            <a href="{{ route('articles.show', $article->id) }}">
+                {{ $article->title }}
+            </a>
+        </h3>
         {{ $article->text }}<br><br>
         <u>Likes:</u> {{ $article->likes }}<br>
         <u>Interests:</u>
