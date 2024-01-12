@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\SocialAuth');
     }
+
+    public function post()
+    {
+        return $this->hasOne('App\Models\Post');
+    }
 }
