@@ -54,8 +54,38 @@ Route::post('/avatar/upload', function () {
     request()->validate([
         'image' => 'required|mimetypes:image/png|max:1024'
     ]);
-    
-    request()->file('image')->storeAs('public/' . auth()->user()->id, 'avatar');
+
+    request()->file('image')->storeAs('public/' . auth()->user()->id, 'avatar.jpg');
 
     return redirect()->back();
 })->name('avatar.upload');
+
+/**
+ * Mail
+ */
+
+use Illuminate\Support\Facades\Mail;
+
+// Übung 15 und 16
+Route::get('/mail/quote', function () {
+    Mail::to(request()->user())->send(new App\Mail\Quote());
+
+    return redirect()->back();
+})->name('mail.quote');
+
+// Übung 17
+Route::get('/mail/inspire', function () {
+    $quote = fake()->catchPhrase();
+    $author = fake()->name();
+
+    Mail::to(request()->user())->send(new App\Mail\Inspire($quote, $author));
+
+    return redirect()->back();
+})->name('mail.inspire');
+
+// Übung 18
+Route::get('/mail/image', function () {
+    Mail::to(request()->user())->send(new App\Mail\Image(auth()->user()));
+
+    return redirect()->back();
+})->name('mail.image');

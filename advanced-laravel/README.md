@@ -57,3 +57,23 @@ Wenn du in deiner .env die Konstante MAIL_MAILER=log setzt und den MAIL_LOG_CHAN
 ### Übung 15: Ein Zitat via Email versenden
 
 Erstelle eine Mail-Klasse Quote. Für diese sollst du ein Blade Template erstellen. Schreibe in das E-Mail-Template ein Zitat, das versendet werden soll.
+
+### Übung 16: Wir brauchen eine reine Textversion der Mail
+
+Erstelle für die Mail Quote eine reine Textversion, die den Text 'reine Text Mail' wiedergibt.
+
+### Übung 17: Inspirierende Mail die dynamische Mails versendet
+
+Erstelle eine neue Komponente für Zitate und binde diese in eine neue erstellte Mail mit dem Namen »Inspire« ein. Im Zitat soll der Text angezeigt werden, der über die $slot-Variable weitergegeben wird. Außerdem soll neben dem Zitat der Autor übergeben und in der Komponente angezeigt werden.
+
+### Übung 18: Eine Biene in einer Mail. Was hat es damit wohl auf sich?
+
+Erstelle eine Mail-Klasse Image. Füge ein eingebettetes Bild sowie Platzhaltertext zu einem von der Mail verwendeten View Template hinzu.
+
+### Übung 19: Endlich die erstellten E-Mails ansehen
+
+Schau deine drei E-Mails der bisherigen Übungen im Browser an und sende sie, bis auf die E-Mail mit eingebettetem Bild, an deine Log-Datei.
+
+### Übung 20: Versende deine vorhandenen Mails an ein reales E-Mail Postfach
+
+Sende deine E-Mail mit Blade Template, eingebundenem Bild und einer reinen Textversion an dein Mailtrap-Postfach.

@@ -12,7 +12,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-8 offset-md-2 text-center">
-                                    <img src="{{ asset('storage/' . auth()->user()->id . '/avatar') }}" class="rounded-circle"
+                                    <img src="{{ asset('storage/' . auth()->user()->id . '/avatar.jpg') }}" class="rounded-circle"
                                         width="300">
                                 </div>
                             </div>
