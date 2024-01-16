@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 @can('view-posts')
-                    <table class="table table-striped row">
+                    <table class="table table-striped">
                         <tr>
                             <th class="col-md-1">#</th>
                             <th class="col-md-3">Titel</th>

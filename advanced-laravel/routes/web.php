@@ -89,3 +89,19 @@ Route::get('/mail/image', function () {
 
     return redirect()->back();
 })->name('mail.image');
+
+/**
+ * Notification
+ */
+use Illuminate\Support\Facades\Notification;
+
+Route::get('/notifications', function () {
+    return view('notifications.index');
+})->name('notifications');
+
+// Übung 22
+Route::get('/notifications/database', function () {
+    Notification::send(Auth::user(),new App\Notifications\Welcome());
+
+    return redirect()->back();
+})->name('notifications.database');

@@ -81,6 +81,16 @@
                                     <a class="dropdown-item" href="{{ route('mail.image') }}">Image</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Notifications
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('notifications.database') }}">Datenbank</a>
+                                </div>
+                            </li>
                         </ul>
                     @endauth
 
@@ -101,9 +111,15 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('avatar') }}">
-                                    <img src="{{ asset('storage/' . auth()->user()->id . '/avatar.jpg') }}"
-                                        class="rounded-circle" height="30">
+                                <a class="nav-link" href="{{ route('notifications') }}">
+                                    <i class="bi bi-bell-fill position-relative">
+                                        @if (Auth::user()->unreadNotifications->count() > 0)
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                                <span class="visually-hidden">New notifications</span>
+                                            </span>
+                                        @endif
+                                    </i>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
@@ -114,6 +130,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/home">Home</a>
+                                    <a class="dropdown-item" href="/avatar">Avatar</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
