@@ -42,3 +42,20 @@ Route::get('/auth/{provider}/callback', [App\Http\Controllers\Auth\LoginControll
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/toggle-active/{id}', [App\Http\Controllers\PostController::class, 'toggleActive'])->name('posts.toggle.active');
+
+/**
+ * Avatar
+ */
+Route::get('/avatar', function () {
+    return view('avatar');
+})->name('avatar');
+
+Route::post('/avatar/upload', function () {
+    request()->validate([
+        'image' => 'required|mimetypes:image/png|max:1024'
+    ]);
+    
+    request()->file('image')->storeAs('public/' . auth()->user()->id, 'avatar');
+
+    return redirect()->back();
+})->name('avatar.upload');
