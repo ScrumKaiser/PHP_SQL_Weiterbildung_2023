@@ -89,3 +89,11 @@ Führe das Setup für den Channel database durch. Versende anschließend die Not
 ### Übung 23: Wir geben uns nicht mit den vorhandenen Laravel Auth-Benachrichtigungen zufrieden!
 
 Lektionsübergreifende Übung: Versuche einmal selbst, die E-Mails des Auth-Prozesses (Verifizierungs-E-Mail und Passwort-vergessen-E-Mail) zu modifizieren, sodass ein anderer Text und Style angezeigt wird. Außerdem soll anstatt des Links in der Verifizierungs-E-Mail ein Token aus sechs Ziffern angezeigt werden. Diesen soll der Nutzer in einem Formular eingeben, um die E-Mail zu verifizieren. Die Aufgabe ist deutlich komplexer. Die Lösung des Problems wird dir hier in der Class nicht auf dem Silbertablett serviert. Du musst wahrscheinlich Google und die Laravel-Dokumentation verwenden, um zur Lösung zu gelangen. Der wichtigste Skill eines Programmierers ist die Fähigkeit, Probleme zu lösen – egal in welcher Programmiersprache. Noch ein Tipp an dich: Es gibt zwar ein Lösungsvideo, du solltest die Übung aber so lange durchführen, bis du eine Lösung erzielt hast. Durch Scheitern und eigenständige Suche nach Lösungen wirst du ein besserer Programmierer. Das Nachmachen von Dingen, die ich dir zeige, bringt dich nur bedingt weiter.
+
+### Übung 24: Dein erster Arbeiter
+
+Es wird Zeit, dass sich ein Arbeiter um deine Aufgabenliste kümmert. Starte einen Queue Worker. Sobald du den Befehl ausgeführt hast, siehst du, dass die entsprechenden Logs geschrieben wurden.
+
+### Übung 25: Ein neuer Job
+
+Erstelle einen Job, um eine E-Mail zu versenden, wenn eine Datei erfolgreich hochgeladen wurde.

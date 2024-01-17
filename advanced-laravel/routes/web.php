@@ -46,16 +46,38 @@ Route::get('/posts/toggle-active/{id}', [App\Http\Controllers\PostController::cl
 /**
  * Avatar
  */
+
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+
 Route::get('/avatar', function () {
     return view('avatar');
 })->name('avatar');
 
 Route::post('/avatar/upload', function () {
-    request()->validate([
+    $validator = Validator::make(request()->all(), [
         'image' => 'required|mimetypes:image/png|max:1024'
     ]);
 
-    request()->file('image')->storeAs('public/' . auth()->user()->id, 'avatar.jpg');
+    if ($validator->fails()) {
+        logger()->warning($validator->errors());
+
+        return redirect()->back()->withErrors($validator)
+            ->withInput();
+    }
+
+    /* request()->validate([
+        'image' => 'required|mimetypes:image/png|max:1024'
+    ]); */
+
+    try {
+        request()->file('image')->storeAs('public/' . auth()->user()->id, 'avatar.jpg');
+
+        // Übung 25
+        dispatch(new App\Jobs\UploadMail(Auth::user()));
+    } catch (Throwable $e) {
+        logger()->warning('Upload fehlgeschlagen.');
+    }
 
     return redirect()->back();
 })->name('avatar.upload');
@@ -63,8 +85,7 @@ Route::post('/avatar/upload', function () {
 /**
  * Mail
  */
-
-use Illuminate\Support\Facades\Mail;
+// use Illuminate\Support\Facades\Mail;
 
 // Übung 15 und 16
 Route::get('/mail/quote', function () {
@@ -113,3 +134,14 @@ Route::get('/notifications/discord', function () {
 
     return redirect()->back();
 })->name('notifications.discord');
+
+/**
+ * Queues
+ */
+Route::get('/queues/log', function () {
+    dispatch(function () {
+        logger()->info('Aufgabe wurde in einer Queue ausgeführt.');
+    });
+
+    return redirect()->back();
+})->name('queues.log');
