@@ -91,8 +91,9 @@ Route::get('/mail/image', function () {
 })->name('mail.image');
 
 /**
- * Notification
+ * Notifications
  */
+
 use Illuminate\Support\Facades\Notification;
 
 Route::get('/notifications', function () {
@@ -101,7 +102,14 @@ Route::get('/notifications', function () {
 
 // Übung 22
 Route::get('/notifications/database', function () {
-    Notification::send(Auth::user(),new App\Notifications\Welcome());
+    Notification::send(Auth::user(), new App\Notifications\Welcome());
 
     return redirect()->back();
 })->name('notifications.database');
+
+// Discord Notification
+Route::get('/notifications/discord', function () {
+    Notification::send(Auth::user(), new App\Notifications\DiscordNotification(Auth::user()));
+
+    return redirect()->back();
+})->name('notifications.discord');

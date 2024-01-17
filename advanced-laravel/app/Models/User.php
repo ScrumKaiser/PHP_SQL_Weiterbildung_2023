@@ -52,4 +52,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Post');
     }
+
+    /**
+     * Discord Channel
+     */
+    public function routeNotificationForDiscord()
+    {
+        return env('DISCORD_CHANNEL_ID');
+    }
 }

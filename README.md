@@ -7,5 +7,5 @@
 - Grundlagen der PHP-Programmierung
 - Objektorientiertes PHP - Grundlagen der OOP
 - PHP-Sprachkern und -Syntax 2
-- Einstieg in Laravel 7
-- Laravel 7 für Fortgeschrittene
+- Einstieg in Laravel 9
+- Laravel 9 für Fortgeschrittene

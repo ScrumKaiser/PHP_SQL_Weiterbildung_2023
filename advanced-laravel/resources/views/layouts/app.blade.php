@@ -88,7 +88,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('notifications.database') }}">Datenbank</a>
+                                    <a class="dropdown-item" href="{{ route('notifications.database') }}">E-Mail</a>
+                                    <a class="dropdown-item" href="{{ route('notifications.discord') }}">Discord</a>
                                 </div>
                             </li>
                         </ul>
