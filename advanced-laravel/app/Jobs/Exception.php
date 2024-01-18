@@ -26,7 +26,7 @@ class Exception implements ShouldQueue
      */
     public function handle(): void
     {
-        //throw new Exception;
+        //throw new \Exception;
         logger()->info('Exception ist weg.');
     }
 }
