@@ -113,3 +113,7 @@ Lass uns doch einmal das Beispiel mit der fiktiven Imbissbude in Laravel nachspi
 ### Übung 29: Die erste Bestellung in deiner Imbissbude
 
 Erstelle eine Closure Route /ordercompleted und sende das Event OrderCompleted bei Aufruf der Route ab.
+
+### Übung 30: Wir sind Detektive und observieren das Post Model
+
+Erstelle einen Observer für das Post-Model. Jedes Mal, wenn ein neuer Post erstellt wurde, soll eine Benachrichtigung an alle Nutzer der Applikation gesendet werden.

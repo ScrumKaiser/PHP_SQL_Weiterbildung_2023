@@ -10,9 +10,28 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->with('user')->get();
 
         return view('posts.index', compact('posts'));
+    }
+
+    /**
+     * Übung 30
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:30',
+            'text' => 'required|string|min:10|max:255'
+        ]);
+
+        Post::create([
+            'user_id' => $request->user()->id,
+            'title' => $request->title,
+            'text' => $request->text
+        ]);
+
+        return redirect()->route('posts.index');
     }
 
     public function toggleActive($id)

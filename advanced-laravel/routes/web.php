@@ -40,8 +40,14 @@ Route::get('/secret', function () {
 Route::get('/auth/{provider}', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'])->name('auth.provider');
 Route::get('/auth/{provider}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
 
+/**
+ * Posts
+ */
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/toggle-active/{id}', [App\Http\Controllers\PostController::class, 'toggleActive'])->name('posts.toggle.active');
+
+// Übung 30
+Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
 
 /**
  * Avatar
@@ -154,7 +160,7 @@ Route::get('queues/exception', function () {
 })->name('queues.exception');
 
 /**
- * Ereignisse
+ * Events
  */
 
 // Übung 29
