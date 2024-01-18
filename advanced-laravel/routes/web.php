@@ -145,3 +145,10 @@ Route::get('/queues/log', function () {
 
     return redirect()->back();
 })->name('queues.log');
+
+// Übung 26
+Route::get('queues/exception', function () {
+    dispatch(new App\Jobs\Exception);
+
+    return redirect()->back();
+})->name('queues.exception');

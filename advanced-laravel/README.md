@@ -97,3 +97,11 @@ Es wird Zeit, dass sich ein Arbeiter um deine Aufgabenliste kümmert. Starte ein
 ### Übung 25: Ein neuer Job
 
 Erstelle einen Job, um eine E-Mail zu versenden, wenn eine Datei erfolgreich hochgeladen wurde.
+
+### Übung 26: Im Job passieren auch Fehler
+
+Erstelle einen Job, der eine Exception wiedergibt und dispatche diesen in der Closure Route /. Starte deinen Worker.
+
+### Übung 27: Ein Fehler bedeutet noch lange nicht das Aus.
+
+Entferne die Exception in der Job-Klasse und führe alle fehlgeschlagenen Jobs erneut aus.
