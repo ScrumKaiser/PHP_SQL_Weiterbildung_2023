@@ -152,3 +152,14 @@ Route::get('queues/exception', function () {
 
     return redirect()->back();
 })->name('queues.exception');
+
+/**
+ * Ereignisse
+ */
+
+// Übung 29
+Route::get('events/ordercompleted', function () {
+    event(new App\Events\OrderCompleted());
+
+    return redirect()->back();
+})->name('events.ordercompleted');

@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\OrderCompleted;
+use App\Listeners\GenerateInvoice;
+use App\Listeners\PrepareCurrywurst;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,8 +23,13 @@ class EventServiceProvider extends ServiceProvider
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // ... other providers
-            \SocialiteProviders\GitHub\GitHubExtendSocialite::class.'@handle',
-            \SocialiteProviders\Discord\DiscordExtendSocialite::class.'@handle',
+            \SocialiteProviders\GitHub\GitHubExtendSocialite::class . '@handle',
+            \SocialiteProviders\Discord\DiscordExtendSocialite::class . '@handle',
+        ],
+        OrderCompleted::class => [
+
+            PrepareCurrywurst::class,
+            GenerateInvoice::class,
         ],
     ];
 

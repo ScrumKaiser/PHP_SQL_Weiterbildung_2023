@@ -105,3 +105,11 @@ Erstelle einen Job, der eine Exception wiedergibt und dispatche diesen in der Cl
 ### Übung 27: Ein Fehler bedeutet noch lange nicht das Aus.
 
 Entferne die Exception in der Job-Klasse und führe alle fehlgeschlagenen Jobs erneut aus.
+
+### Übung 28: Dein erstes Event in deiner neuen Imbissbude
+
+Lass uns doch einmal das Beispiel mit der fiktiven Imbissbude in Laravel nachspielen. Erstelle dazu ein Event mit dem Namen OrderCompleted und zwei Listener mit den Namen PrepareCurrywurst sowie GenerateInvoice. Du kannst das Event mit den Listenern explizit im EventServiceProvider registrieren oder automatisch registrieren lassen.
+
+### Übung 29: Die erste Bestellung in deiner Imbissbude
+
+Erstelle eine Closure Route /ordercompleted und sende das Event OrderCompleted bei Aufruf der Route ab.
