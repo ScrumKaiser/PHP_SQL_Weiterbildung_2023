@@ -27,7 +27,6 @@ class EventServiceProvider extends ServiceProvider
             \SocialiteProviders\Discord\DiscordExtendSocialite::class . '@handle',
         ],
         OrderCompleted::class => [
-
             PrepareCurrywurst::class,
             GenerateInvoice::class,
         ],
