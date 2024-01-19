@@ -122,3 +122,18 @@ Erstelle einen Observer für das Post-Model. Jedes Mal, wenn ein neuer Post erst
 
 Erstelle eine CalcException. Wenn die Exception auftritt, soll error, falsche Handhabung von calc in die Logs geschrieben werden. Der Nutzer soll die Meldung erhalten, die der CalcException als message mitgegeben wird.
 
+### Übung 32: Nahrungsmittel über die Openfoodfact-API finden
+
+Deine Aufgabe ist es, die Open-Source-Nahrungsmittel-API Openfoodfact zu verwenden, um anhand des Barcodes Informationen über deine Lebensmittel einzuholen. Vorteil von Open Source ist, dass du die API beliebig oft ohne Kosten und Anmeldedaten verwenden kannst. Der API Endpoint lautet folgendermaßen: "https://de.openfoodfacts.org/api/v0/product/". Der Barcode des Produkts wird angehängt. Da du wahrscheinlich genauso gut einen Barcode lesen kannst wie ich, weise ich darauf hin, dass die Nummer unter dem Barcode eine numerische Version dessen ist. Die Dokumentation der API findest du unter https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro.
+
+Wird ein Produkt nicht gefunden, erhältst du in der JSON-Response den "status": 0. Wird ein Produkt gefunden, erhältst du umfangreiche Informationen und den "status": 1. Weitere für die Übung benötigten Information in der JSON-Response sind:
+
+- nutriments: { energy-kcal, fat, saturated-fat_value, carbohydrates_value, sugars_value, proteins, salt} | Nährwerte { Brennwert in Kcal, Fett, gesättigte Fettsäuren, Kohlenhydrate, davon Zucker, Eiweiß, Salz }
+- product_name | Produktname
+- image_url | Produktbild
+
+So, was ist jetzt meine eigentliche Aufgabe? Du sollst eine View erstellen, auf der der Nutzer in einem Formular-Input einen Barcode eingeben kann. Deine Laravel-Applikation sendet eine Anfrage an die API von Openfoodfacts. Du verarbeitest die JSON-Antwort und zeigst an, ob das Produkt gefunden wurde oder nicht. Wenn das Produkt gefunden wurde, zeigst du verschiedene Informationen wie Nährwerte, Produktname und Produktbild an.
+
+Mit dem Ergebnis deiner Übungsaufgabe kannst du dann deine verschiedenen Lebensmittel überprüfen. Falls du keinen Barcode zur Wahl hast, dann schau dich doch mal zu Hause um, bestimmt findest du etwas – ich habe hier z. B. gerade eine Tafel Schokolade vor mir liegen. Leider habe ich sie während des Schreibens der Übungsaufgabe komplett aufgegessen, was nicht der Plan war. Barcode: 4000417021007
+
+Wenn du dir die gesamte JSON-Antwort ausgeben lässt, wirst du sehen, dass die API von Openfoodfacts noch einiges mehr neben den von mir genannten Werten bietet. Lass dich von mir nicht bremsen! Vielleicht baust du mit den vorhandenen Daten eine ganz eigene Applikation.

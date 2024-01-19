@@ -1,9 +1,11 @@
 <?php
 
 use App\Exceptions\CalcException;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 Auth::routes();
 
@@ -179,3 +181,18 @@ Route::get('/events/ordercompleted', function () {
 Route::get('/exceptions/calc', function () {
     throw new CalcException('Falsche Handhabung von calc!');
 })->name('exceptions.calc');
+
+/**
+ * API
+ */
+Route::get('/api/test', function () {
+    $response = Http::get('https://jsonplaceholder.typicode.com/users');
+
+    $users = collect($response->json())->map(function ($item) {
+        return (object) $item;
+    });
+    dump($users);
+})->name('api.test');
+
+// Übung 32
+Route::resource('products', ProductController::class)->only('index', 'store');
