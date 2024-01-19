@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\CalcException;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -153,7 +154,7 @@ Route::get('/queues/log', function () {
 })->name('queues.log');
 
 // Übung 26
-Route::get('queues/exception', function () {
+Route::get('/queues/exception', function () {
     dispatch(new App\Jobs\Exception);
 
     return redirect()->back();
@@ -164,8 +165,17 @@ Route::get('queues/exception', function () {
  */
 
 // Übung 29
-Route::get('events/ordercompleted', function () {
+Route::get('/events/ordercompleted', function () {
     event(new App\Events\OrderCompleted());
 
     return redirect()->back();
 })->name('events.ordercompleted');
+
+/**
+ * Exceptions
+ */
+
+// Übung 31
+Route::get('/exceptions/calc', function () {
+    throw new CalcException('Falsche Handhabung von calc!');
+})->name('exceptions.calc');

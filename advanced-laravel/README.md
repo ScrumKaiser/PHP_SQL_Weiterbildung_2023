@@ -117,3 +117,8 @@ Erstelle eine Closure Route /ordercompleted und sende das Event OrderCompleted b
 ### Übung 30: Wir sind Detektive und observieren das Post Model
 
 Erstelle einen Observer für das Post-Model. Jedes Mal, wenn ein neuer Post erstellt wurde, soll eine Benachrichtigung an alle Nutzer der Applikation gesendet werden.
+
+### Übung 31: Deine erste Custom Exception
+
+Erstelle eine CalcException. Wenn die Exception auftritt, soll error, falsche Handhabung von calc in die Logs geschrieben werden. Der Nutzer soll die Meldung erhalten, die der CalcException als message mitgegeben wird.
+
